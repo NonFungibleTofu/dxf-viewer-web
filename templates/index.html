@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DXF Viewer</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .container { max-width: 800px; margin: auto; }
+    svg { width: 100%; height: auto; border: 1px solid #ccc; margin-top: 20px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>DXF Viewer</h1>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".dxf" required>
+    <button type="submit">Upload and view</button>
+  </form>
+  {% if svg_data %}
+  <h2>Preview:</h2>
+  <div>{{ svg_data | safe }}</div>
+  {% else %}
+  <p>No DXF preview available.</p>
+  {% endif %}
+</div>
+</body>
+</html>
